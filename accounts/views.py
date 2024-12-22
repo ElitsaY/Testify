@@ -8,6 +8,7 @@ class RegisterStudentView(APIView):
     def post(self, request):
         serializer = RegisterStudentSerializer(data = request.data)
         if serializer.is_valid():
+            #save to the database
             serializer.save()
             return Response(
                 {"message": "Student registered successfully."},
