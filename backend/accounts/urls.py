@@ -9,10 +9,10 @@ from .views import RegisterTeacherView
 
 urlpatterns = [
     path('register/', RegisterStudentView.as_view(), name='register_student'),
-     # JWT Login
+    
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # JWT Refresh
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    
     path('create_teacher/', RegisterTeacherView.as_view(), name='create_teacher'),
 ]
